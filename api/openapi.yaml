@@ -21,9 +21,9 @@ tags:
 - description: not yet ready
   name: project
 - description: not yet ready
-  name: deliverable
-- description: not yet ready
   name: workpackage
+- description: not yet ready
+  name: deliverable
 - description: not yet ready
   name: employee
 paths:
@@ -134,113 +134,6 @@ paths:
       - project
       x-method-getAll: "true"
       x-eov-operation-handler: controllers/ProjectController
-  /deliverable:
-    post:
-      operationId: createdeliverable
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/deliverable'
-        description: data to be created
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/deliverable'
-          description: successful operation
-      summary: Creates the data
-      tags:
-      - deliverable
-      x-eov-operation-handler: controllers/DeliverableController
-  /deliverable/{deliverableId}:
-    delete:
-      operationId: deletedeliverable
-      parameters:
-      - description: the Id parameter
-        explode: false
-        in: path
-        name: deliverableId
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: successful operation
-      summary: Delete the element
-      tags:
-      - deliverable
-      x-eov-operation-handler: controllers/DeliverableController
-    get:
-      operationId: getdeliverable
-      parameters:
-      - description: the Id parameter
-        explode: false
-        in: path
-        name: deliverableId
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/deliverable'
-          description: successful operation
-      summary: Get the element
-      tags:
-      - deliverable
-      x-eov-operation-handler: controllers/DeliverableController
-    put:
-      operationId: updatedeliverable
-      parameters:
-      - description: the Id parameter
-        explode: false
-        in: path
-        name: deliverableId
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/deliverable'
-        description: data to be updated
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/deliverable'
-          description: successful operation
-      summary: Updates the element
-      tags:
-      - deliverable
-      x-eov-operation-handler: controllers/DeliverableController
-  /deliverable/getAll:
-    get:
-      operationId: getAlldeliverable
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/deliverable'
-                type: array
-          description: successful operation
-      summary: Get all the data
-      tags:
-      - deliverable
-      x-method-getAll: "true"
-      x-eov-operation-handler: controllers/DeliverableController
   /workpackage:
     post:
       operationId: createworkpackage
@@ -348,6 +241,113 @@ paths:
       - workpackage
       x-method-getAll: "true"
       x-eov-operation-handler: controllers/WorkpackageController
+  /deliverable:
+    post:
+      operationId: createdeliverable
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/deliverable'
+        description: data to be created
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deliverable'
+          description: successful operation
+      summary: Creates the data
+      tags:
+      - deliverable
+      x-eov-operation-handler: controllers/DeliverableController
+  /deliverable/{deliverableId}:
+    delete:
+      operationId: deletedeliverable
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: deliverableId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: successful operation
+      summary: Delete the element
+      tags:
+      - deliverable
+      x-eov-operation-handler: controllers/DeliverableController
+    get:
+      operationId: getdeliverable
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: deliverableId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deliverable'
+          description: successful operation
+      summary: Get the element
+      tags:
+      - deliverable
+      x-eov-operation-handler: controllers/DeliverableController
+    put:
+      operationId: updatedeliverable
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: deliverableId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/deliverable'
+        description: data to be updated
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deliverable'
+          description: successful operation
+      summary: Updates the element
+      tags:
+      - deliverable
+      x-eov-operation-handler: controllers/DeliverableController
+  /deliverable/getAll:
+    get:
+      operationId: getAlldeliverable
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/deliverable'
+                type: array
+          description: successful operation
+      summary: Get all the data
+      tags:
+      - deliverable
+      x-method-getAll: "true"
+      x-eov-operation-handler: controllers/DeliverableController
   /employee:
     post:
       operationId: createemployee
@@ -525,26 +525,6 @@ components:
       - pWebsite
       - pWorkpackage
       type: object
-    deliverable:
-      example:
-        dStatus: dStatus
-        dName: dName
-        dEnd: dEnd
-        _id: _id
-      properties:
-        _id:
-          type: string
-        dName:
-          type: string
-        dEnd:
-          type: string
-        dStatus:
-          type: string
-      required:
-      - dEnd
-      - dName
-      - dStatus
-      type: object
     workpackage:
       example:
         wName: wName
@@ -564,6 +544,26 @@ components:
       - wName
       - wPMs
       - wRole
+      type: object
+    deliverable:
+      example:
+        dStatus: dStatus
+        dName: dName
+        dEnd: dEnd
+        _id: _id
+      properties:
+        _id:
+          type: string
+        dName:
+          type: string
+        dEnd:
+          type: string
+        dStatus:
+          type: string
+      required:
+      - dEnd
+      - dName
+      - dStatus
       type: object
     employee:
       example:
