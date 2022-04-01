@@ -21,9 +21,9 @@ tags:
 - description: not yet ready
   name: project
 - description: not yet ready
-  name: workpackage
-- description: not yet ready
   name: deliverable
+- description: not yet ready
+  name: workpackage
 - description: not yet ready
   name: employee
 paths:
@@ -134,113 +134,6 @@ paths:
       - project
       x-method-getAll: "true"
       x-eov-operation-handler: controllers/ProjectController
-  /workpackage:
-    post:
-      operationId: createworkpackage
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/workpackage'
-        description: data to be created
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/workpackage'
-          description: successful operation
-      summary: Creates the data
-      tags:
-      - workpackage
-      x-eov-operation-handler: controllers/WorkpackageController
-  /workpackage/{workpackageId}:
-    delete:
-      operationId: deleteworkpackage
-      parameters:
-      - description: the Id parameter
-        explode: false
-        in: path
-        name: workpackageId
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: successful operation
-      summary: Delete the element
-      tags:
-      - workpackage
-      x-eov-operation-handler: controllers/WorkpackageController
-    get:
-      operationId: getworkpackage
-      parameters:
-      - description: the Id parameter
-        explode: false
-        in: path
-        name: workpackageId
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/workpackage'
-          description: successful operation
-      summary: Get the element
-      tags:
-      - workpackage
-      x-eov-operation-handler: controllers/WorkpackageController
-    put:
-      operationId: updateworkpackage
-      parameters:
-      - description: the Id parameter
-        explode: false
-        in: path
-        name: workpackageId
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/workpackage'
-        description: data to be updated
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/workpackage'
-          description: successful operation
-      summary: Updates the element
-      tags:
-      - workpackage
-      x-eov-operation-handler: controllers/WorkpackageController
-  /workpackage/getAll:
-    get:
-      operationId: getAllworkpackage
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/workpackage'
-                type: array
-          description: successful operation
-      summary: Get all the data
-      tags:
-      - workpackage
-      x-method-getAll: "true"
-      x-eov-operation-handler: controllers/WorkpackageController
   /deliverable:
     post:
       operationId: createdeliverable
@@ -348,6 +241,113 @@ paths:
       - deliverable
       x-method-getAll: "true"
       x-eov-operation-handler: controllers/DeliverableController
+  /workpackage:
+    post:
+      operationId: createworkpackage
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/workpackage'
+        description: data to be created
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/workpackage'
+          description: successful operation
+      summary: Creates the data
+      tags:
+      - workpackage
+      x-eov-operation-handler: controllers/WorkpackageController
+  /workpackage/{workpackageId}:
+    delete:
+      operationId: deleteworkpackage
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: workpackageId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: successful operation
+      summary: Delete the element
+      tags:
+      - workpackage
+      x-eov-operation-handler: controllers/WorkpackageController
+    get:
+      operationId: getworkpackage
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: workpackageId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/workpackage'
+          description: successful operation
+      summary: Get the element
+      tags:
+      - workpackage
+      x-eov-operation-handler: controllers/WorkpackageController
+    put:
+      operationId: updateworkpackage
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: workpackageId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/workpackage'
+        description: data to be updated
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/workpackage'
+          description: successful operation
+      summary: Updates the element
+      tags:
+      - workpackage
+      x-eov-operation-handler: controllers/WorkpackageController
+  /workpackage/getAll:
+    get:
+      operationId: getAllworkpackage
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/workpackage'
+                type: array
+          description: successful operation
+      summary: Get all the data
+      tags:
+      - workpackage
+      x-method-getAll: "true"
+      x-eov-operation-handler: controllers/WorkpackageController
   /employee:
     post:
       operationId: createemployee
@@ -525,26 +525,6 @@ components:
       - pWebsite
       - pWorkpackage
       type: object
-    workpackage:
-      example:
-        wName: wName
-        wPMs: wPMs
-        _id: _id
-        wRole: wRole
-      properties:
-        _id:
-          type: string
-        wName:
-          type: string
-        wRole:
-          type: string
-        wPMs:
-          type: string
-      required:
-      - wName
-      - wPMs
-      - wRole
-      type: object
     deliverable:
       example:
         dStatus: dStatus
@@ -564,6 +544,26 @@ components:
       - dEnd
       - dName
       - dStatus
+      type: object
+    workpackage:
+      example:
+        wName: wName
+        wPMs: wPMs
+        _id: _id
+        wRole: wRole
+      properties:
+        _id:
+          type: string
+        wName:
+          type: string
+        wRole:
+          type: string
+        wPMs:
+          type: string
+      required:
+      - wName
+      - wPMs
+      - wRole
       type: object
     employee:
       example:
